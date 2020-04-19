@@ -2,16 +2,36 @@ $(function(){
     mapboxgl.accessToken = 'pk.eyJ1IjoiamluLWlnYXJhc2hpIiwiYSI6ImNrOHV1Nm9mdTAzMGIzdHNmbDBmZzllNnIifQ.J-ZRzlVGLH6Qm2UbCmYWeA';
     this.map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/jin-igarashi/ck96bmtvb20rm1imxl7bim510', // stylesheet location
+        style:'mapbox://styles/jin-igarashi/ck96bmtvb20rm1imxl7bim510',
         center: [35.8708381, -1.0936999], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
     });
+
+    this.map.addControl(new StylesControl({
+        styles: [
+            {
+            label: 'Monochrome',
+            styleName: 'Mapbox Monochrome',
+            styleUrl: 'mapbox://styles/jin-igarashi/ck96bmtvb20rm1imxl7bim510',
+            }, {
+            label: 'Satellite',
+            styleName: 'Satellite',
+            styleUrl: 'mapbox://styles/jin-igarashi/ck96fntye2atb1il3e8u9g7uo',
+            },
+        ],
+        //onChange: (style) => console.log(style),
+    }), 'top-left');
+
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.addControl(new mapboxgl.ScaleControl({
         maxWidth: 80,
         unit: 'metric'
     }));
+    this.map.addControl(new RulerControl(), 'top-right');
+
+
+
     // Add geolocate control to the map.
     this.map.addControl(
         new mapboxgl.GeolocateControl({
@@ -20,7 +40,7 @@ $(function(){
         },
         trackUserLocation: true
         })
-        );
+    );
 
     const createPopup = e => {
         var coordinates = e.lngLat;
