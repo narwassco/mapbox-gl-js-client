@@ -2,7 +2,7 @@ $(function(){
     mapboxgl.accessToken = 'pk.eyJ1IjoiamluLWlnYXJhc2hpIiwiYSI6ImNrOHV1Nm9mdTAzMGIzdHNmbDBmZzllNnIifQ.J-ZRzlVGLH6Qm2UbCmYWeA';
     this.map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/jin-igarashi/ck8v6kye70pwd1io00waic2zu', // stylesheet location
+        style: 'mapbox://styles/jin-igarashi/ck96bmtvb20rm1imxl7bim510', // stylesheet location
         center: [35.8708381, -1.0936999], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
