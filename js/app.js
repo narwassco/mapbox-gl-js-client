@@ -80,7 +80,7 @@ $(function(){
     }
 
     this.map.on('click', 'meter', createPopup);
-    this.map.on('click', 'flowmeter', createPopup);
+    this.map.on('click', 'flow meter', createPopup);
     this.map.on('click', 'valve', createPopup);
     this.map.on('click', 'washout', createPopup);
     this.map.on('click', 'firehydrant', createPopup);
