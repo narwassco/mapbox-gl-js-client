@@ -24,6 +24,7 @@ $(function(){
         //onChange: (style) => console.log(style),
     }), 'top-left');
 
+    this.map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
     this.map.addControl(new mapboxgl.ScaleControl({
@@ -40,10 +41,6 @@ $(function(){
     //         trash: true
     //     }
     // }), 'top-left');
-    this.map.addControl(new mapboxgl.AttributionControl({
-        compact: true,
-        customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
-    }));
 
     // Add geolocate control to the map.
     this.map.addControl(
@@ -54,6 +51,12 @@ $(function(){
         trackUserLocation: true
         })
     );
+
+    this.map.addControl(new mapboxgl.AttributionControl({
+        compact: true,
+        customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
+    }));
+    this.map.addControl(new InspectControl(), 'bottom-right');
 
     const createPopup = e => {
         var coordinates = e.lngLat;
