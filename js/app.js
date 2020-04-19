@@ -25,10 +25,12 @@ $(function(){
     }), 'top-left');
 
     this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
     this.map.addControl(new mapboxgl.ScaleControl({
         maxWidth: 80,
         unit: 'metric'
     }));
+    this.map.addControl(new RulerControl(), 'top-right');
     this.map.addControl(new MapboxDraw({
         displayControlsDefault: false,
         controls: {
@@ -38,7 +40,6 @@ $(function(){
             trash: true
         }
     }), 'top-left');
-    this.map.addControl(new RulerControl(), 'top-left');
     this.map.addControl(new mapboxgl.AttributionControl({
         compact: true,
         customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
