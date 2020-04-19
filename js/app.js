@@ -6,6 +6,7 @@ $(function(){
         center: [35.8708381, -1.0936999], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
+        attributionControl: false,
     });
 
     this.map.addControl(new StylesControl({
@@ -28,9 +29,20 @@ $(function(){
         maxWidth: 80,
         unit: 'metric'
     }));
-    this.map.addControl(new RulerControl(), 'top-right');
-
-
+    this.map.addControl(new MapboxDraw({
+        displayControlsDefault: false,
+        controls: {
+            point: true,
+            line_string: true,
+            polygon: true,
+            trash: true
+        }
+    }), 'top-left');
+    this.map.addControl(new RulerControl(), 'top-left');
+    this.map.addControl(new mapboxgl.AttributionControl({
+        compact: true,
+        customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
+    }));
 
     // Add geolocate control to the map.
     this.map.addControl(
