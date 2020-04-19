@@ -31,15 +31,15 @@ $(function(){
         unit: 'metric'
     }));
     this.map.addControl(new RulerControl(), 'top-right');
-    this.map.addControl(new MapboxDraw({
-        displayControlsDefault: false,
-        controls: {
-            point: true,
-            line_string: true,
-            polygon: true,
-            trash: true
-        }
-    }), 'top-left');
+    // this.map.addControl(new MapboxDraw({
+    //     displayControlsDefault: false,
+    //     controls: {
+    //         point: true,
+    //         line_string: true,
+    //         polygon: true,
+    //         trash: true
+    //     }
+    // }), 'top-left');
     this.map.addControl(new mapboxgl.AttributionControl({
         compact: true,
         customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
