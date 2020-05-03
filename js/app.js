@@ -1,37 +1,37 @@
+mapboxgl.accessToken = 'pk.eyJ1IjoibmFyd2Fzc2NvIiwiYSI6ImNrOXIxOTFleTBvNGIzZ3A4b3docmE5cHQifQ.BqsnWbWZ2NwJZDWyOVWjXA';
+
+const STYLES = [
+    {
+    label: 'Street',
+    styleName: 'Street',
+    styleUrl: 'mapbox://styles/narwassco/ck9rin9ej0xn51iqxp57a361v',
+    }, {
+    label: 'Satellite',
+    styleName: 'Satellite',
+    styleUrl: 'mapbox://styles/narwassco/ck9ringpx01bk1iq8q4xvknjx',
+    },
+];
+
 $(function(){
-    mapboxgl.accessToken = 'pk.eyJ1IjoiamluLWlnYXJhc2hpIiwiYSI6ImNrOHV1Nm9mdTAzMGIzdHNmbDBmZzllNnIifQ.J-ZRzlVGLH6Qm2UbCmYWeA';
     this.map = new mapboxgl.Map({
         container: 'map', // container id
-        style:'mapbox://styles/jin-igarashi/ck9qw5qu92j2l1ipbu6hoox9x',
+        style: STYLES[0].styleUrl,
         center: [35.87063, -1.08551], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
         attributionControl: false,
     });
     
-    this.map.addControl(new StylesControl({
-        styles: [
-            {
-            label: 'Street',
-            styleName: 'Street',
-            styleUrl: 'mapbox://styles/jin-igarashi/ck9qw5qu92j2l1ipbu6hoox9x',
-            }, {
-            label: 'Satellite',
-            styleName: 'Satellite',
-            styleUrl: 'mapbox://styles/jin-igarashi/ck9qnb9zh2k6w1ip9dw8bxwox',
-            },
-        ],
-        //onChange: (style) => console.log(style),
-    }), 'top-left');
+    this.map.addControl(new StylesControl({styles: STYLES,}), 'top-left');
     this.map.addControl(new SwitchAreasControl(), 'top-left');
     this.map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
-    this.map.addControl(new mapboxgl.ScaleControl({
-        maxWidth: 80,
-        unit: 'metric'
-    }));
+    this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}));
     this.map.addControl(new RulerControl(), 'top-right');
+    this.map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}));
+    this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'}));
+    //this.map.addControl(new InspectControl(), 'bottom-right');
     // this.map.addControl(new MapboxDraw({
     //     displayControlsDefault: false,
     //     controls: {
@@ -41,22 +41,6 @@ $(function(){
     //         trash: true
     //     }
     // }), 'top-left');
-
-    // Add geolocate control to the map.
-    this.map.addControl(
-        new mapboxgl.GeolocateControl({
-        positionOptions: {
-        enableHighAccuracy: true
-        },
-        trackUserLocation: true
-        })
-    );
-
-    this.map.addControl(new mapboxgl.AttributionControl({
-        compact: true,
-        customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
-    }));
-    //this.map.addControl(new InspectControl(), 'bottom-right');
 
     const createPopup = e => {
         var coordinates = e.lngLat;
