@@ -3,12 +3,12 @@ $(function(){
     this.map = new mapboxgl.Map({
         container: 'map', // container id
         style:'mapbox://styles/jin-igarashi/ck9qkurfv22xe1ip3ed8yik7n',
-        center: [35.8708381, -1.0936999], // starting position [lng, lat]
+        center: [35.87063, -1.08551], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
         attributionControl: false,
     });
-
+    
     this.map.addControl(new StylesControl({
         styles: [
             {
@@ -23,7 +23,7 @@ $(function(){
         ],
         //onChange: (style) => console.log(style),
     }), 'top-left');
-
+    this.map.addControl(new SwitchAreasControl(), 'top-left');
     this.map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
@@ -56,7 +56,7 @@ $(function(){
         compact: true,
         customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'
     }));
-    this.map.addControl(new InspectControl(), 'bottom-right');
+    //this.map.addControl(new InspectControl(), 'bottom-right');
 
     const createPopup = e => {
         var coordinates = e.lngLat;
