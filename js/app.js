@@ -2,7 +2,7 @@ $(function(){
     mapboxgl.accessToken = 'pk.eyJ1IjoiamluLWlnYXJhc2hpIiwiYSI6ImNrOHV1Nm9mdTAzMGIzdHNmbDBmZzllNnIifQ.J-ZRzlVGLH6Qm2UbCmYWeA';
     this.map = new mapboxgl.Map({
         container: 'map', // container id
-        style:'mapbox://styles/jin-igarashi/ck96bmtvb20rm1imxl7bim510',
+        style:'mapbox://styles/jin-igarashi/ck9qkurfv22xe1ip3ed8yik7n',
         center: [35.8708381, -1.0936999], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
@@ -14,11 +14,11 @@ $(function(){
             {
             label: 'Monochrome',
             styleName: 'Mapbox Monochrome',
-            styleUrl: 'mapbox://styles/jin-igarashi/ck96bmtvb20rm1imxl7bim510',
+            styleUrl: 'mapbox://styles/jin-igarashi/ck9qkurfv22xe1ip3ed8yik7n',
             }, {
             label: 'Satellite',
             styleName: 'Satellite',
-            styleUrl: 'mapbox://styles/jin-igarashi/ck96fntye2atb1il3e8u9g7uo',
+            styleUrl: 'mapbox://styles/jin-igarashi/ck9qnb9zh2k6w1ip9dw8bxwox',
             },
         ],
         //onChange: (style) => console.log(style),
