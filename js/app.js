@@ -2,7 +2,7 @@ $(function(){
     mapboxgl.accessToken = 'pk.eyJ1IjoiamluLWlnYXJhc2hpIiwiYSI6ImNrOHV1Nm9mdTAzMGIzdHNmbDBmZzllNnIifQ.J-ZRzlVGLH6Qm2UbCmYWeA';
     this.map = new mapboxgl.Map({
         container: 'map', // container id
-        style:'mapbox://styles/jin-igarashi/ck9qkurfv22xe1ip3ed8yik7n',
+        style:'mapbox://styles/jin-igarashi/ck9qw5qu92j2l1ipbu6hoox9x',
         center: [35.87063, -1.08551], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
@@ -12,9 +12,9 @@ $(function(){
     this.map.addControl(new StylesControl({
         styles: [
             {
-            label: 'Monochrome',
-            styleName: 'Mapbox Monochrome',
-            styleUrl: 'mapbox://styles/jin-igarashi/ck9qkurfv22xe1ip3ed8yik7n',
+            label: 'Street',
+            styleName: 'Street',
+            styleUrl: 'mapbox://styles/jin-igarashi/ck9qw5qu92j2l1ipbu6hoox9x',
             }, {
             label: 'Satellite',
             styleName: 'Satellite',
