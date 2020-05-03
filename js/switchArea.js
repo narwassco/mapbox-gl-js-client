@@ -68,7 +68,7 @@ var SwitchAreasControl = /*#__PURE__*/function () {
 
           _this.map.flyTo({
             center: area.latlng,
-            minZoom: area.zoom,
+            zoom: area.zoom,
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
             });
 
