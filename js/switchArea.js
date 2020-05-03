@@ -66,10 +66,9 @@ var SwitchAreasControl = /*#__PURE__*/function () {
         node.addEventListener('click', function () {
           if (node.classList.contains('-active')) return;
 
-          _this.map.flyTo({
+          _this.map.jumpTo({
             center: area.latlng,
             zoom: area.zoom,
-            essential: true // this animation is considered essential with respect to prefers-reduced-motion
             });
 
           if (_this.onChange) _this.onChange(area);
