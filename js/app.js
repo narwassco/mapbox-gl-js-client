@@ -4,7 +4,7 @@ const STYLES = [
     {
     label: 'Street',
     styleName: 'Street',
-    styleUrl: 'mapbox://styles/narwassco/ck9rin9ej0xn51iqxp57a361v',
+    styleUrl: 'mapbox://styles/narwassco/cka9n3gdl2jwh1ioa2zsowqn5',
     }, {
     label: 'Satellite',
     styleName: 'Satellite',
