@@ -24,12 +24,14 @@ th{
 /* style switcher tool */
 .mapboxgl-ctrl-styles {
     display: flex;
+    height: 36px;
   }
 .mapboxgl-ctrl-styles button {
     width: auto;
     display: flex;
     align-items: center;
     padding: 0 8px;
+    height: 36px;
 }
 .mapboxgl-ctrl-styles button + button {
     border: none;
@@ -41,11 +43,12 @@ th{
 /* area switcher tool */
 .mapboxgl-ctrl-styles {
   display: flex;
+  height: 36px;
 }
 .mapboxgl-ctrl-switch select {
   width: auto;
   display: flex;
-  height: 25px;
+  height: 36px;
   padding: 0 8px;
   align-items: center;
 	cursor: pointer;
