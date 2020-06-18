@@ -44,7 +44,7 @@ $(function(){
             var feature = customerData.features[i];
             // console.log(feature.properties)
             // handle queries with different capitalization than the source data by calling toLowerCase()
-            ['connno', 'serialno', 'customer'].forEach(v=>{
+            ['connno', 'serialno'].forEach(v=>{
                 var target = feature.properties[v];
                 if (!target){
                     return;
@@ -65,7 +65,7 @@ $(function(){
             accessToken: mapboxgl.accessToken,
             localGeocoder: forwardGeocoder,
             zoom: 16,
-            placeholder: 'CONN NO, S/N, Name',
+            placeholder: 'Search CONN NO or S/N',
             mapboxgl: mapboxgl
         }),
         'top-left'
