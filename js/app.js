@@ -64,9 +64,11 @@ $(function(){
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             localGeocoder: forwardGeocoder,
+            localGeocoderOnly:true,
             zoom: 16,
             placeholder: 'Search CONN NO or S/N',
-            mapboxgl: mapboxgl
+            mapboxgl: mapboxgl,
+            countries:'ke'
         }),
         'top-left'
     );
