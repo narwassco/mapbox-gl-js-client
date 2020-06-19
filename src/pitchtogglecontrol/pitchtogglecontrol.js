@@ -1,4 +1,4 @@
-class PitchToggle {
+export default class PitchToggle {
     
     constructor({bearing = -20, pitch = 70, minpitchzoom = null}) {
         this._bearing = bearing;
