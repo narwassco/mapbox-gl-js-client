@@ -1,27 +1,30 @@
+import $ from 'jquery';
+import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import RulerControl from 'mapbox-gl-controls/lib/ruler';
+import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
+import PitchToggle from './pitchtogglecontrol/pitchtogglecontrol';
+import AreaSwitcherControl from './AreaSwitcherControl/AreaSwitcherControl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import "mapbox-gl-style-switcher/styles.css"
+import './pitchtogglecontrol/pitchtogglecontrol.css';
+import './AreaSwitcherControl/AreaSwitcherControl.css';
+import './style.css';
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibmFyd2Fzc2NvIiwiYSI6ImNrOXIxOTFleTBvNGIzZ3A4b3docmE5cHQifQ.BqsnWbWZ2NwJZDWyOVWjXA';
 
+MapboxStyleSwitcherControl.DEFAULT_STYLE = 'Street';
 const STYLES = [
-    {
-        label: 'Street',
-        styleName: 'Street',
-        styleUrl: 'mapbox://styles/narwassco/cka9n3gdl2jwh1ioa2zsowqn5',
-    }, 
-    {
-        label: 'Satellite',
-        styleName: 'Satellite',
-        styleUrl: 'mapbox://styles/narwassco/ck9ringpx01bk1iq8q4xvknjx',
-    },
-    {
-        label: 'UN Vector',
-        styleName: 'NARWASSCO',
-        styleUrl: 'https://narwassco.github.io/vt-map/style.json',
-    },
+    { title: 'Street', uri: 'mapbox://styles/narwassco/cka9n3gdl2jwh1ioa2zsowqn5',}, 
+    { title: 'Satellite', uri: 'mapbox://styles/narwassco/ck9ringpx01bk1iq8q4xvknjx',},
+    { title: 'UN Vector Tile', uri: 'https://narwassco.github.io/vt-map/style.json',},
 ];
 
 $(function(){
     this.map = new mapboxgl.Map({
         container: 'map', // container id
-        style: STYLES[0].styleUrl,
+        style: STYLES[0].uri,
         center: [35.87063, -1.08551], // starting position [lng, lat]
         zoom: 13, // starting zoom
         hash:true,
@@ -29,27 +32,25 @@ $(function(){
     });
 
     var customerData;
-    $.ajaxSetup({ async: false });
-    $.getJSON('https://narwassco.github.io/vt-map/meter.geojson', function(json){
-        customerData = json;
-    })
-    $.ajaxSetup({ async: true });
+    $.ajax({
+		type: "GET",
+		url:"https://narwassco.github.io/vt-map/meter.geojson",
+		async: false,
+		success: json=>{customerData = json;},
+		error: err=>{console.log(err)}
+    });
     
     function forwardGeocoder(query) {
-        var matched = function(value, query){
-            return (value.toString().toLowerCase().search(query.toString().toLowerCase()) !== -1);
-        }
         var matchingFeatures = [];
         for (var i = 0; i < customerData.features.length; i++) {
             var feature = customerData.features[i];
-            // console.log(feature.properties)
-            // handle queries with different capitalization than the source data by calling toLowerCase()
             ['connno', 'serialno'].forEach(v=>{
                 var target = feature.properties[v];
                 if (!target){
                     return;
                 }
-                if (matched(target,query)) {
+                // handle queries with different capitalization than the source data by calling toLowerCase()
+                if ((target.toString().toLowerCase().search(query.toString().toLowerCase()) !== -1)) {
                     feature['place_name'] = `${feature.properties.customer}, ${feature.properties.connno}, ${feature.properties.serialno}, ${feature.properties.village}`;
                     feature['center'] = feature.geometry.coordinates;
                     feature['place_type'] = ['meter'];
@@ -73,25 +74,14 @@ $(function(){
         'top-left'
     );
     
-    this.map.addControl(new StylesControl({styles: STYLES,}), 'top-left');
-    this.map.addControl(new SwitchAreasControl(), 'top-left');
-    this.map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
-    this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    this.map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), 'top-right');
     this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
-    this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}));
+    this.map.addControl(new MapboxStyleSwitcherControl(STYLES), 'top-right');
+    this.map.addControl(new AreaSwitcherControl(), 'top-right');
     this.map.addControl(new RulerControl(), 'top-right');
-    this.map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}));
-    this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: 'Narok Water and Sewerage Services Co., Ltd.'}));
-    //this.map.addControl(new InspectControl(), 'bottom-right');
-    // this.map.addControl(new MapboxDraw({
-    //     displayControlsDefault: false,
-    //     controls: {
-    //         point: true,
-    //         line_string: true,
-    //         polygon: true,
-    //         trash: true
-    //     }
-    // }), 'top-left');
+    this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
+    this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: '©NARWASSCO,Ltd.'}), 'bottom-right');
 
     const createPopup = e => {
         var coordinates = e.lngLat;
@@ -117,13 +107,6 @@ $(function(){
         .addTo(this.map);
     }
 
-    this.map.on('click', 'meter', createPopup);
-    this.map.on('click', 'flow meter', createPopup);
-    this.map.on('click', 'valve', createPopup);
-    this.map.on('click', 'washout', createPopup);
-    this.map.on('click', 'firehydrant', createPopup);
-    this.map.on('click', 'tank', createPopup);
-    this.map.on('click', 'intake', createPopup);
-    this.map.on('click', 'wtp', createPopup);
-    this.map.on('click', 'pipeline', createPopup);
+    ['meter','flow meter','valve','washout','firehydrant','tank','pipeline'/**,'intake','wtp'*/]
+    .forEach(l=>{this.map.on('click', l, createPopup);});
 })
