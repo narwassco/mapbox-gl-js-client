@@ -9,6 +9,33 @@ cd mapbox-gl-js-client
 npm i
 ```
 
+## Configuration
+Please edit your own settings on `config.js` such as mapbox accessToken, stylefile URL, etc.
+
+```js
+{
+    accessToken : 'Your Mapbox AccessToken',
+    attribution : 'Your attribution',
+    styles : [
+        { title: 'Style Name', uri: 'Stylefile URL',}, 
+    ],
+    center: [35.87063, -1.08551],
+    zoom: 13,
+    search:{ //if searching window is not necessary, please delete "search" property from config.js
+        url: 'GeoJSON URL for searching',
+        target: ['connno', 'serialno'], //target column name for searching
+        format: (p) => {return `${p.customer}, ${p.connno}, ${p.serialno}, ${p.village}`}, //format of searching result
+        place_type: ['meter'],
+        placeholder: 'Search CONN NO or S/N',
+        zoom: 17,
+    },
+    popup: { //if popup is not necessary, please delete "popup" property from config.js
+        //target of layer name which you want to show popup
+        target: ['meter','flow meter','valve','washout','firehydrant','tank','pipeline'/**,'intake','wtp'*/]
+    }
+}
+```
+
 ## Build
 
 ```
