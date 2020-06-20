@@ -50,7 +50,7 @@ npm run dev
 ```
 Then, local server will be launched automatically. You can access to http://localhost:8080/ and check how your development works before deploying to gh-pages.
 
-## Depoloy to gh-pages
+## Deploy to gh-pages
 
 ```
 npm run deploy
