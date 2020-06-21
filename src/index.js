@@ -1,12 +1,14 @@
 import $ from 'jquery';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import MapboxTraffic from '@mapbox/mapbox-gl-traffic';
 import RulerControl from 'mapbox-gl-controls/lib/ruler';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
 import PitchToggle from './pitchtogglecontrol/pitchtogglecontrol';
 import AreaSwitcherControl from './AreaSwitcherControl/AreaSwitcherControl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import '@mapbox/mapbox-gl-traffic/mapbox-gl-traffic.css';
 import "mapbox-gl-style-switcher/styles.css"
 import './pitchtogglecontrol/pitchtogglecontrol.css';
 import './AreaSwitcherControl/AreaSwitcherControl.css';
@@ -30,6 +32,7 @@ $(function(){
     this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
     MapboxStyleSwitcherControl.DEFAULT_STYLE = config.styles[0].title;
     this.map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
+    this.map.addControl(new MapboxTraffic({showTraffic:false}));
     this.map.addControl(new AreaSwitcherControl(), 'top-right');
     this.map.addControl(new RulerControl(), 'top-right');
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
