@@ -1,4 +1,7 @@
 # mapbox-gl-js-client
+![GitHub](https://img.shields.io/github/license/narwassco/mapbox-gl-js-client)
+[![Gitter](https://badges.gitter.im/narwassco/community.svg)](https://gitter.im/narwassco/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 This client shows Mapbox Vetor Tile of water supply map for Narok Water.
 
 ## Installation
