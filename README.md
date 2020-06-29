@@ -53,6 +53,25 @@ npm run dev
 ```
 Then, local server will be launched automatically. You can access to http://localhost:8080/ and check how your development works before deploying to gh-pages.
 
+## Before deploying
+### Delete `CNAME`
+Before deploying to your Github pages, please make sure deleting `CNAME` file under `dist` directory. Because this `CNAME` file is for Narok Water's custom domain.
+
+### Remove source code for Google Analytics from `index.html`
+This website put the script for Google Analytics in order to count page views. Please delete below source code before deploying.
+
+```js
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170080825-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-170080825-1');
+</script>
+```
+
 ## Deploy to gh-pages
 
 ```
