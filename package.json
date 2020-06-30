@@ -36,6 +36,7 @@
     "mapbox-gl": "^1.11.0",
     "mapbox-gl-controls": "^1.6.4",
     "mapbox-gl-style-switcher": "^1.0.6",
+    "print-js": "^1.0.63",
     "turf": "^3.0.14"
   }
 }

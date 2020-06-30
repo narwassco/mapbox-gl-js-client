@@ -6,12 +6,14 @@ import RulerControl from 'mapbox-gl-controls/lib/ruler';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
 import PitchToggle from './pitchtogglecontrol/pitchtogglecontrol';
 import AreaSwitcherControl from './AreaSwitcherControl/AreaSwitcherControl';
+import PrintControl from './PrintControl/PrintControl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import '@mapbox/mapbox-gl-traffic/mapbox-gl-traffic.css';
 import "mapbox-gl-style-switcher/styles.css"
 import './pitchtogglecontrol/pitchtogglecontrol.css';
 import './AreaSwitcherControl/AreaSwitcherControl.css';
+import './PrintControl/PrintControl.css';
 import './style.css';
 import config from './config';
 
@@ -35,6 +37,7 @@ $(function(){
     this.map.addControl(new MapboxTraffic({showTraffic:false}));
     this.map.addControl(new AreaSwitcherControl(), 'top-right');
     this.map.addControl(new RulerControl(), 'top-right');
+    this.map.addControl(new PrintControl(), 'top-right');
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
 
