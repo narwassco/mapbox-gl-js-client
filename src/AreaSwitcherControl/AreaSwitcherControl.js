@@ -24,43 +24,63 @@ export default class AreaSwitcherControl {
     this.controlContainer = document.createElement("div");
     this.controlContainer.classList.add("mapboxgl-ctrl");
     this.controlContainer.classList.add("mapboxgl-ctrl-group");
-    this.mapAreaContainer = document.createElement("div");
-    this.areaButton = document.createElement("button");
-    this.mapAreaContainer.classList.add("mapboxgl-area-list");
-    for (const area of this.areas) {
-        const styleElement = document.createElement("button");
-        styleElement.innerText = area.title;
-        styleElement.classList.add(area.title.replace(/[^a-z0-9-]/gi, '_'));
-        styleElement.value = JSON.stringify({
+    if (this.areas.length < 6){
+      this.mapAreaContainer = document.createElement("div");
+      this.areaButton = document.createElement("button");
+      this.mapAreaContainer.classList.add("mapboxgl-area-list");
+      for (const area of this.areas) {
+          const styleElement = document.createElement("button");
+          styleElement.innerText = area.title;
+          styleElement.classList.add(area.title.replace(/[^a-z0-9-]/gi, '_'));
+          styleElement.value = JSON.stringify({
+            center: area.latlng,
+            zoom: area.zoom,
+          });
+          styleElement.addEventListener("click", event => {
+              const srcElement = event.srcElement;
+              this.map.jumpTo(JSON.parse(srcElement.value));
+              // this.map.setStyle(JSON.parse(srcElement.dataset.uri));
+              this.mapAreaContainer.style.display = "none";
+              this.areaButton.style.display = "block";
+              const elms = this.mapAreaContainer.getElementsByClassName("active");
+              while (elms[0]) {
+                  elms[0].classList.remove("active");
+              }
+              srcElement.classList.add("active");
+          });
+          if (area.title === AreaSwitcherControl.DEFAULT_AREA) {
+              styleElement.classList.add("active");
+          }
+          this.mapAreaContainer.appendChild(styleElement);
+      }
+      this.areaButton.classList.add("mapboxgl-ctrl-icon");
+      this.areaButton.classList.add("mapboxgl-area-switcher");
+      this.areaButton.addEventListener("click", () => {
+          this.areaButton.style.display = "none";
+          this.mapAreaContainer.style.display = "block";
+      });
+      document.addEventListener("click", this.onDocumentClick);
+      this.controlContainer.appendChild(this.areaButton);
+      this.controlContainer.appendChild(this.mapAreaContainer);
+    }else{
+      this.controlContainer.classList.add('mapboxgl-ctrl-switch');
+      this.select = document.createElement('select');
+      this.select.setAttribute('type', 'select');
+      this.select.addEventListener('change', function (e) {
+        _this.map.flyTo(JSON.parse(e.target[this.selectedIndex].value));
+      });
+      this.controlContainer.appendChild(this.select);
+      this.areas.forEach(function (area) {
+        var node = document.createElement('option');
+        node.setAttribute('type', 'option');
+        node.text = area.title;
+        node.value = JSON.stringify({
           center: area.latlng,
           zoom: area.zoom,
-        });
-        styleElement.addEventListener("click", event => {
-            const srcElement = event.srcElement;
-            this.map.jumpTo(JSON.parse(srcElement.value));
-            // this.map.setStyle(JSON.parse(srcElement.dataset.uri));
-            this.mapAreaContainer.style.display = "none";
-            this.areaButton.style.display = "block";
-            const elms = this.mapAreaContainer.getElementsByClassName("active");
-            while (elms[0]) {
-                elms[0].classList.remove("active");
-            }
-            srcElement.classList.add("active");
-        });
-        if (area.title === AreaSwitcherControl.DEFAULT_AREA) {
-            styleElement.classList.add("active");
-        }
-        this.mapAreaContainer.appendChild(styleElement);
+          });
+        _this.select.appendChild(node);
+      });
     }
-    this.areaButton.classList.add("mapboxgl-ctrl-icon");
-    this.areaButton.classList.add("mapboxgl-area-switcher");
-    this.areaButton.addEventListener("click", () => {
-        this.areaButton.style.display = "none";
-        this.mapAreaContainer.style.display = "block";
-    });
-    document.addEventListener("click", this.onDocumentClick);
-    this.controlContainer.appendChild(this.areaButton);
-    this.controlContainer.appendChild(this.mapAreaContainer);
     return this.controlContainer;
   }
   
