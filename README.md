@@ -19,6 +19,7 @@ Please edit your own settings on `config.js` such as mapbox accessToken, stylefi
 {
     accessToken : 'Your Mapbox AccessToken',
     attribution : 'Your attribution',
+    cname: 'your custom domain', //change it to your custom domain or comment it
     styles : [
         { title: 'Style Name', uri: 'Stylefile URL',}, 
     ],
@@ -55,7 +56,13 @@ Then, local server will be launched automatically. You can access to http://loca
 
 ## Before deploying
 ### Delete `CNAME`
-Before deploying to your Github pages, please make sure deleting `CNAME` file under `dist` directory. Because this `CNAME` file is for Narok Water's custom domain.
+Before deploying to your Github pages, please make sure deleting `CNAME` file setting in `src/config.js`. Because this `CNAME` file is for Narok Water's custom domain.
+
+```js
+module.exports = {
+    cname: 'narok.water-gis.com', //please comment out this or change it to your custom domain
+}
+```
 
 ### Remove source code for Google Analytics from `index.html`
 This website put the script for Google Analytics in order to count page views. Please delete below source code before deploying.
