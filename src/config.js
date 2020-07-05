@@ -3,6 +3,7 @@ const version = 0.1;
 module.exports = {
     accessToken : 'pk.eyJ1IjoibmFyd2Fzc2NvIiwiYSI6ImNrOXIxOTFleTBvNGIzZ3A4b3docmE5cHQifQ.BqsnWbWZ2NwJZDWyOVWjXA',
     attribution : '©NARWASSCO,Ltd.',
+    cname: 'narok.water-gis.com',
     styles : [
         //{ title: 'Street', uri: 'mapbox://styles/narwassco/cka9n3gdl2jwh1ioa2zsowqn5',}, 
         //{ title: 'Satellite', uri: 'mapbox://styles/narwassco/ck9ringpx01bk1iq8q4xvknjx',},
