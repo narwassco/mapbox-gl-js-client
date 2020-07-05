@@ -1,10 +1,10 @@
 const fs = require('fs');
 const { exec } = require("child_process");
-const config = require('./src/config');
+require('dotenv').config()
 
 const build = () =>{
-    if (config.cname){
-        fs.writeFileSync('./dist/CNAME', config.cname);
+    if (process.env.CNAME){
+        fs.writeFileSync('./dist/CNAME', process.env.CNAME);
     }
 
     exec("webpack", (error, stdout, stderr) => {

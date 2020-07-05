@@ -17,9 +17,8 @@ Please edit your own settings on `config.js` such as mapbox accessToken, stylefi
 
 ```js
 {
-    accessToken : 'Your Mapbox AccessToken',
+    accessToken : process.env.ACCESSTOKEN,
     attribution : 'Your attribution',
-    cname: 'your custom domain', //change it to your custom domain or comment it
     styles : [
         { title: 'Style Name', uri: 'Stylefile URL',}, 
     ],
@@ -55,13 +54,12 @@ npm run dev
 Then, local server will be launched automatically. You can access to http://localhost:8080/ and check how your development works before deploying to gh-pages.
 
 ## Before deploying
-### Delete `CNAME`
-Before deploying to your Github pages, please make sure deleting `CNAME` file setting in `src/config.js`. Because this `CNAME` file is for Narok Water's custom domain.
+### put `Mapbox AccessToken` and `CNAME` in `.env` file
+Before deploying to your Github pages, please make sure configuring your `AccessToken` and `CNAME` in `.env`. 
 
 ```js
-module.exports = {
-    cname: 'narok.water-gis.com', //please comment out this or change it to your custom domain
-}
+ACCESSTOKEN=Your public access token for Mapbox
+CNAME=Your custom domain. If you don't have custom domain, just delete it.
 ```
 
 ### Remove source code for Google Analytics from `index.html`
