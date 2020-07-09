@@ -7,7 +7,7 @@ const build = () =>{
         fs.writeFileSync('./dist/CNAME', process.env.CNAME);
     }
 
-    exec("webpack", (error, stdout, stderr) => {
+    exec("webpack --mode production", (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;

@@ -30,5 +30,8 @@ module.exports = {
         publicPath: '/',
         watchContentBase: true,
         open: true
+    },
+    externals: {
+        'mapbox-gl': 'mapboxgl'
     }
 };
