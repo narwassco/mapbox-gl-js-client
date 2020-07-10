@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js",
-    "dev": "webpack-dev-server",
+    "start": "webpack-dev-server --open --hot --inline --config webpack.dev.js",
+    "build": "node build.js && webpack --config webpack.prod.js",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -26,7 +26,8 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-directions": "^4.0.3",

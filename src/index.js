@@ -15,6 +15,18 @@ import './AreaSwitcherControl/AreaSwitcherControl.css';
 import './style.css';
 import config from './config';
 
+if (process.env.NODE_ENV === 'production') {
+    if (process.env.GANALYTICSID){
+        document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${process.env.GANALYTICSID}"></script>`);
+        document.write(`<script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.GANALYTICSID}');
+        </script>`);
+    }
+}
+
 $(function(){
     mapboxgl.accessToken = config.accessToken;
 

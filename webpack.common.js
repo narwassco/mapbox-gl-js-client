@@ -6,7 +6,7 @@ module.exports = {
     entry: './src/index.js',
     plugins: [
         new webpack.ProvidePlugin({
-        Promise: 'es6-promise',
+            Promise: 'es6-promise',
         }),
         new Dotenv()
     ],
@@ -25,12 +25,12 @@ module.exports = {
         },
         ],
     },
-    devServer: {
-        contentBase: __dirname + '/dist',
-        publicPath: '/',
-        watchContentBase: true,
-        open: true
-    },
+    // devServer: {
+    //     contentBase: __dirname + '/dist',
+    //     publicPath: '/',
+    //     watchContentBase: true,
+    //     open: true
+    // },
     externals: {
         'mapbox-gl': 'mapboxgl'
     }
