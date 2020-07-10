@@ -48,12 +48,22 @@ Then, local server will be launched automatically. You can access to http://loca
 
 ## Before deploying
 ### put `Mapbox AccessToken` and `CNAME` in `.env` file
-Before deploying to your Github pages, please make sure configuring your `AccessToken` and `CNAME` and `GANALYTICSID` in `.env`. 
+Before deploying to your Github pages, please make sure configuring your `AccessToken` and `CNAME` in `.env`. 
 
 ```js
 ACCESSTOKEN=Your public access token for Mapbox
 CNAME=Your custom domain. If you don't have custom domain, just delete it.
-GANALYTICSID=Your Google Analytics ID
+```
+
+### Delete Script of Google Analytics from `index.html`
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170080825-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-170080825-1');
+</script>
 ```
 
 ## Build
