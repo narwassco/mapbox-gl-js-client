@@ -1,0 +1,29 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build_and_deploy:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}"
+            - run: echo "CNAME=${CNAME}"
+            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}" > .env
+            - run: echo "CNAME=${CNAME}" >> .env
+            - run: cat .env
+            - run: npm run build
+            - run: git config user.email "narwassco+circleci@users.noreply.github.com"
+            - run: git config user.name "narwassco+circleci"
+            - run: npm run deploy
+workflows:
+  build_and_deploy:
+      jobs:
+        - build_and_deploy:
+          filters:
+            branches:
+              only: 
+                - master
