@@ -10,12 +10,12 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: echo "export ACCESSTOKEN=${ACCESSTOKEN}" >> $BASH_ENV
-            - run: echo "export CNAME=${CNAME}" >> $BASH_ENV
+            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}" > .env
+            - run: echo "CNAME=${CNAME}" > .env
             - run: npm run build
-            # - run: git config user.email "narwassco+circleci@users.noreply.github.com"
-            # - run: git config user.name "narwassco+circleci"
-            # - run: npm run deploy
+            - run: git config user.email "narwassco+circleci@users.noreply.github.com"
+            - run: git config user.name "narwassco+circleci"
+            - run: npm run deploy
 workflows:
   build_and_deploy:
       jobs:
