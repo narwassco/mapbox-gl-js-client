@@ -10,11 +10,8 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}"
-            - run: echo "CNAME=${CNAME}"
             - run: echo "ACCESSTOKEN=${ACCESSTOKEN}" > .env
             - run: echo "CNAME=${CNAME}" >> .env
-            - run: cat .env
             - run: npm run build
             - run: git config user.email "narwassco+circleci@users.noreply.github.com"
             - run: git config user.name "narwassco+circleci"
