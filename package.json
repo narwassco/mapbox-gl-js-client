@@ -30,9 +30,7 @@
     "webpack-merge": "^5.0.9"
   },
   "dependencies": {
-    "@mapbox/mapbox-gl-directions": "^4.0.3",
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
-    "@mapbox/mapbox-gl-traffic": "^1.0.2",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
     "jquery": "^3.5.1",
