@@ -5,10 +5,6 @@ jobs:
   build_and_deploy:
     executor:
       name: node/default
-    filters:
-      branches:
-        only: 
-          - circleci-project-setup
     steps:
       - checkout
       - node/with-cache:
@@ -23,4 +19,8 @@ jobs:
 workflows:
   build_and_deploy:
       jobs:
-        - build_and_deploy
+        - build_and_deploy:
+          filters:
+            branches:
+              only: 
+                - master
