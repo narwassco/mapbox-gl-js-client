@@ -12,8 +12,8 @@ jobs:
             - run: npm install
             - run: echo "ACCESSTOKEN=${ACCESSTOKEN}"
             - run: echo "CNAME=${CNAME}"
-            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}" > ~/.env
-            - run: echo "CNAME=${CNAME}" >> ~/.env
+            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}" > .env
+            - run: echo "CNAME=${CNAME}" >> .env
             - run: cat ~/.env
             - run: npm run build
             # - run: git config user.email "narwassco+circleci@users.noreply.github.com"
