@@ -11,6 +11,8 @@ jobs:
           steps:
             - run: npm install
             - run: npm run build
+            - run: git config user.email "jinigarashi+circleci@users.noreply.github.com"
+            - run: git config user.name "jinigarashi+circleci"
             - run: npm run deploy
 workflows:
   build_and_deploy:
