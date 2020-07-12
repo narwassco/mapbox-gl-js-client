@@ -10,17 +10,11 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run:
-              name: check environment variables
-              command: |
-                echo "ACCESSTOKEN=${ACCESSTOKEN}"
-                echo "CNAME=${CNAME}"
-            - run:
-              name: create .env
-              command: |
-                echo "ACCESSTOKEN=${ACCESSTOKEN}" > ~/.env
-                echo "CNAME=${CNAME}" > ~/.env
-                cat ~/.env
+            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}"
+            - run: echo "CNAME=${CNAME}"
+            - run: echo "ACCESSTOKEN=${ACCESSTOKEN}" > ~/.env
+            - run: echo "CNAME=${CNAME}" > ~/.env
+            - run: cat ~/.env
             - run: npm run build
             # - run: git config user.email "narwassco+circleci@users.noreply.github.com"
             # - run: git config user.name "narwassco+circleci"
