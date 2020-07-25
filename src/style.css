@@ -1,21 +1,2 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%;z-index: 10;}
-
-.mapboxgl-popup {
-    max-width: 400px;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    }
-
-table.popup-table{
-    border-collapse:collapse;
-    margin:0 auto;
-}
-td,th{
-    border:1px solid #ccc;
-    margin: 10px;
-    padding:2px;
-    text-align: left;
-}
-th{
-    background:#EFEFEF;
-}

@@ -4,6 +4,8 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import RulerControl from 'mapbox-gl-controls/lib/ruler';
 import CompassControl from 'mapbox-gl-controls/lib/compass';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
+import MapboxPopupControl from '@watergis/mapbox-gl-popup';
+import '@watergis/mapbox-gl-popup/css/styles.css';
 import PitchToggle from './pitchtogglecontrol/pitchtogglecontrol';
 import AreaSwitcherControl from './AreaSwitcherControl/AreaSwitcherControl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -36,6 +38,7 @@ $(function(){
     this.map.addControl(new RulerControl(), 'top-right');
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
+    if (config.popup)this.map.addControl(new MapboxPopupControl(config.popup.target));
 
     if (config.search){
         $.getJSON(config.search.url , customerData =>{
@@ -71,25 +74,5 @@ $(function(){
                 'top-left'
             );
         });
-    }
-
-    if (config.popup){
-        const createPopup = e => {
-            let coordinates = e.lngLat;
-            const f = e.features[0];
-            if (f.geometry.type === 'Point'){
-                coordinates = f.geometry.coordinates.slice();
-            }
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-            new mapboxgl.Popup().setLngLat(coordinates)
-            .setHTML(`<table class="popup-table">${Object.keys(f.properties).map(k=>{return `<tr><th>${k}</th><td>${f.properties[k]}</td></tr>`;}).join('')}</table>`)
-            .addTo(this.map);
-        }
-        config.popup.target.forEach(l=>{this.map.on('click', l, createPopup);});
     }
 })
