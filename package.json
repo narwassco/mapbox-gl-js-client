@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
+    "@watergis/mapbox-gl-area-switcher": "^1.0.0",
     "@watergis/mapbox-gl-popup": "^1.0.0",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
