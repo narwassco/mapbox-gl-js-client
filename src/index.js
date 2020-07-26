@@ -1,20 +1,18 @@
 import $ from 'jquery';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import RulerControl from 'mapbox-gl-controls/lib/ruler';
 import CompassControl from 'mapbox-gl-controls/lib/compass';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
+import "mapbox-gl-style-switcher/styles.css"
 import MapboxPopupControl from '@watergis/mapbox-gl-popup';
 import '@watergis/mapbox-gl-popup/css/styles.css';
-import PitchToggle from './pitchtogglecontrol/pitchtogglecontrol';
+import MapboxPitchToggleControl from '@watergis/mapbox-gl-pitch-toggle-control';
+import '@watergis/mapbox-gl-pitch-toggle-control/css/styles.css';
 import MapboxAreaSwitcherControl from '@watergis/mapbox-gl-area-switcher';
 import '@watergis/mapbox-gl-area-switcher/css/styles.css';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import "mapbox-gl-style-switcher/styles.css"
-import './pitchtogglecontrol/pitchtogglecontrol.css';
-
-import './style.css';
 import config from './config';
 
 $(function(){
@@ -32,15 +30,10 @@ $(function(){
     this.map.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
     this.map.addControl(new CompassControl(), 'top-right');
     this.map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), 'top-right');
-    this.map.addControl(new PitchToggle({minpitchzoom: 19})); 
+    this.map.addControl(new MapboxPitchToggleControl({minpitchzoom: 19})); 
     MapboxStyleSwitcherControl.DEFAULT_STYLE = config.styles[0].title;
     this.map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
-    this.map.addControl(new MapboxAreaSwitcherControl([
-        {title: 'Narok',latlng: [35.87063, -1.08551],zoom: 14,}, 
-        {title: "Ololulung'a",latlng: [35.65072, -1.0085],zoom: 13}, 
-        {title: "Kilgoris",latlng: [34.87533, -1.00278],zoom: 14}, 
-        {title: "Suswa",latlng: [36.33078, -1.05307],zoom: 13}
-    ]), 'top-right');
+    this.map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
     this.map.addControl(new RulerControl(), 'top-right');
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');

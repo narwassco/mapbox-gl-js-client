@@ -22,5 +22,13 @@ module.exports = {
     },
     popup: {
         target: ['meter','flow meter','valve','washout','firehydrant','tank','pipeline'/**,'intake','wtp'*/]
+    },
+    areaSwitcher: {
+        areas : [
+            {title: 'Narok',latlng: [35.87063, -1.08551],zoom: 14,}, 
+            {title: "Ololulung'a",latlng: [35.65072, -1.0085],zoom: 13}, 
+            {title: "Kilgoris",latlng: [34.87533, -1.00278],zoom: 14}, 
+            {title: "Suswa",latlng: [36.33078, -1.05307],zoom: 13}
+        ]
     }
 }
