@@ -13,6 +13,8 @@ import MapboxPitchToggleControl from '@watergis/mapbox-gl-pitch-toggle-control';
 import '@watergis/mapbox-gl-pitch-toggle-control/css/styles.css';
 import MapboxAreaSwitcherControl from '@watergis/mapbox-gl-area-switcher';
 import '@watergis/mapbox-gl-area-switcher/css/styles.css';
+import MapboxLegendControl from "@watergis/mapbox-gl-legend";
+import '@watergis/mapbox-gl-legend/css/styles.css';
 import config from './config';
 
 $(function(){
@@ -38,6 +40,13 @@ $(function(){
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
     if (config.popup)this.map.addControl(new MapboxPopupControl(config.popup.target));
+    if (config.legend){
+        var map_ = this.map;
+        map_.on('load', function() {
+            map_.addControl(new MapboxLegendControl(config.legend.targets), 'bottom-right')
+        });
+    }
+    
 
     if (config.search){
         $.getJSON(config.search.url , customerData =>{
