@@ -49,7 +49,7 @@ $(function(){
                 legendCtrl = null;
             }
             legendCtrl = new MapboxLegendControl(config.legend.targets);
-            map_.addControl(legendCtrl, 'bottom-right')
+            map_.addControl(legendCtrl, 'bottom-left')
         });
     }
 
