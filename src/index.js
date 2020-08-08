@@ -40,13 +40,18 @@ $(function(){
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
     if (config.popup)this.map.addControl(new MapboxPopupControl(config.popup.target));
+    let legendCtrl;
     if (config.legend){
         var map_ = this.map;
-        map_.on('load', function() {
-            map_.addControl(new MapboxLegendControl(config.legend.targets), 'bottom-right')
+        map_.on('styledata', function() {
+            if(legendCtrl){
+                map_.removeControl(legendCtrl);
+                legendCtrl = null;
+            }
+            legendCtrl = new MapboxLegendControl(config.legend.targets);
+            map_.addControl(legendCtrl, 'bottom-right')
         });
     }
-    
 
     if (config.search){
         $.getJSON(config.search.url , customerData =>{
