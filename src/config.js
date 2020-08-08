@@ -30,5 +30,21 @@ module.exports = {
             {title: "Kilgoris",latlng: [34.87533, -1.00278],zoom: 14}, 
             {title: "Suswa",latlng: [36.33078, -1.05307],zoom: 13}
         ]
+    },
+    legend:{
+        targets:{
+            'pipeline': 'Pipeline',
+            'meter': 'Water Meter',
+            'flow meter': 'Flow Meter', 
+            'valve': 'Valve', 
+            'firehydrant': 'Fire Hydrant', 
+            'washout': 'Washout',
+            'tank': 'Tank', 
+            'wtp': 'WTP', 
+            'intake': 'Intake', 
+            'parcels': 'Parcels', 
+            'village': 'Village', 
+            'dma': 'DMA'
+        }
     }
 }

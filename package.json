@@ -32,6 +32,7 @@
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@watergis/mapbox-gl-area-switcher": "^1.0.0",
+    "@watergis/mapbox-gl-legend": "^1.0.1",
     "@watergis/mapbox-gl-pitch-toggle-control": "^1.0.0",
     "@watergis/mapbox-gl-popup": "^1.0.0",
     "dotenv": "^8.2.0",
