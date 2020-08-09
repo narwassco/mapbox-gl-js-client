@@ -35,6 +35,7 @@
     "@watergis/mapbox-gl-legend": "^1.0.1",
     "@watergis/mapbox-gl-pitch-toggle-control": "^1.0.0",
     "@watergis/mapbox-gl-popup": "^1.0.0",
+    "@watergis/mapbox-gl-print": "^1.0.0",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
     "jquery": "^3.5.1",
