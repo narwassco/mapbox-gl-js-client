@@ -1,4 +1,4 @@
-const version = 0.1;
+const version = 0.2;
 
 module.exports = {
     accessToken : process.env.ACCESSTOKEN,
@@ -13,7 +13,7 @@ module.exports = {
     center: [35.87063, -1.08551],
     zoom: 13,
     search:{
-        url: 'https://narwassco.github.io/vt-map/meter.geojson',
+        url: 'https://narwassco.github.io/vt/meter.geojson',
         target: ['connno', 'serialno'],
         format: (p) => {return `${p.customer}, ${p.connno}, ${p.serialno}, ${p.village}`},
         place_type: ['meter'],
