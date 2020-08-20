@@ -27,14 +27,14 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.1.1"
+    "webpack-merge": "^5.1.2"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "@watergis/mapbox-gl-area-switcher": "^1.0.1",
     "@watergis/mapbox-gl-legend": "^1.0.2",
     "@watergis/mapbox-gl-pitch-toggle-control": "^1.0.3",
-    "@watergis/mapbox-gl-popup": "^1.0.3",
+    "@watergis/mapbox-gl-popup": "^1.0.4",
     "@watergis/mapbox-gl-print": "^1.0.1",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
