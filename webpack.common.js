@@ -33,5 +33,8 @@ module.exports = {
     // },
     externals: {
         'mapbox-gl': 'mapboxgl'
+    },
+    node: {
+        fs: "empty"
     }
 };
