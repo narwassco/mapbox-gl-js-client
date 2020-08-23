@@ -1,8 +1,11 @@
 import $ from 'jquery';
+import area from '@turf/area';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import MapboxDraw from "@mapbox/mapbox-gl-draw";
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
 import RulerControl from 'mapbox-gl-controls/lib/ruler';
 import CompassControl from 'mapbox-gl-controls/lib/compass';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
@@ -39,6 +42,39 @@ $(function(){
     this.map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
     this.map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
     this.map.addControl(new RulerControl(), 'top-right');
+
+    var draw = new MapboxDraw({
+        displayControlsDefault: false,
+        controls: {
+            polygon: true,
+            trash: true
+        }
+    });
+    this.map.addControl(draw, 'top-right');
+    this.map.on('draw.create', updateArea);
+    this.map.on('draw.delete', updateArea);
+    this.map.on('draw.update', updateArea);
+ 
+    function updateArea(e) {
+        var data = draw.getAll();
+        if (data.features.length > 0) {
+            data.features.forEach(f=>{
+                var _area = area(f);
+                // restrict to area to 2 decimal points
+                var rounded_area = Math.round(_area * 100) / 100;
+                console.log(rounded_area);
+            })
+            // var _area = area(data);
+            // restrict to area to 2 decimal points
+            // var rounded_area = Math.round(_area * 100) / 100;
+            // console.log(rounded_area)
+            // answer.innerHTML =
+            // '<p><strong>' +
+            // rounded_area +
+            // '</strong></p><p>square meters</p>';
+        }
+    }
+
     this.map.addControl(new MapboxPrintControl(), 'top-right');
     this.map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     this.map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
