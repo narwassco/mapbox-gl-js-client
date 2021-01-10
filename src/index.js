@@ -15,7 +15,7 @@ import MapboxAreaSwitcherControl from '@watergis/mapbox-gl-area-switcher';
 import '@watergis/mapbox-gl-area-switcher/css/styles.css';
 import MapboxLegendControl from "@watergis/mapbox-gl-legend";
 import '@watergis/mapbox-gl-legend/css/styles.css';
-import MapboxExportControl from "@watergis/mapbox-gl-export";
+import { MapboxExportControl } from "@watergis/mapbox-gl-export";
 import '@watergis/mapbox-gl-export/css/styles.css';
 import config from './config';
 
