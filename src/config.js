@@ -62,5 +62,15 @@ module.exports = {
             reverseOrder:true,
             onlyRendered:true
         }
+    },
+    elevation: {
+        url: 'https://narwassco.github.io/narok-terrain/tiles/{z}/{x}/{y}.png',
+        options: {
+            font: ['Roboto Medium'],
+            fontSize: 12,
+            fontHalo: 1,
+            mainColor: '#263238',
+            haloColor: '#fff',
+        }
     }
 }

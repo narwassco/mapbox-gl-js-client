@@ -17,6 +17,8 @@ import MapboxLegendControl from "@watergis/mapbox-gl-legend";
 import '@watergis/mapbox-gl-legend/css/styles.css';
 import { MapboxExportControl } from "@watergis/mapbox-gl-export";
 import '@watergis/mapbox-gl-export/css/styles.css';
+import MapboxElevationControl from "@watergis/mapbox-gl-elevation";
+import '@watergis/mapbox-gl-elevation/css/styles.css';
 import config from './config';
 
 $(function(){
@@ -39,6 +41,7 @@ $(function(){
     map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
     map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
     map.addControl(new RulerControl(), 'top-right');
+    map.addControl(new MapboxElevationControl(config.elevation.url, config.elevation.options), 'top-right');
     map.addControl(new MapboxExportControl(), 'top-right');
     map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
