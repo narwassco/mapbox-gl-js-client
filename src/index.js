@@ -3,7 +3,6 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import RulerControl from 'mapbox-gl-controls/lib/ruler';
 import CompassControl from 'mapbox-gl-controls/lib/compass';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
 import "mapbox-gl-style-switcher/styles.css"
@@ -40,7 +39,6 @@ $(function(){
     MapboxStyleSwitcherControl.DEFAULT_STYLE = config.styles[0].title;
     map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
     map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
-    map.addControl(new RulerControl(), 'top-right');
     map.addControl(new MapboxElevationControl(config.elevation.url, config.elevation.options), 'top-right');
     map.addControl(new MapboxExportControl(), 'top-right');
     map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
