@@ -41,8 +41,6 @@
     "es6-promise": "^4.2.8",
     "jquery": "^3.5.1",
     "mapbox-gl": "^1.13.0",
-    "mapbox-gl-controls": "^1.6.5",
-    "mapbox-gl-style-switcher": "^1.0.9",
-    "turf": "^3.0.14"
+    "mapbox-gl-style-switcher": "^1.0.9"
   }
 }

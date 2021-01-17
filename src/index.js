@@ -3,7 +3,6 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import CompassControl from 'mapbox-gl-controls/lib/compass';
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
 import "mapbox-gl-style-switcher/styles.css"
 import MapboxPopupControl from '@watergis/mapbox-gl-popup';
@@ -32,8 +31,7 @@ $(function(){
         attributionControl: false,
     });
 
-    map.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
-    map.addControl(new CompassControl(), 'top-right');
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
     map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), 'top-right');
     map.addControl(new MapboxPitchToggleControl({minpitchzoom: 19})); 
     MapboxStyleSwitcherControl.DEFAULT_STYLE = config.styles[0].title;
