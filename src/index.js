@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
-import "mapbox-gl-style-switcher/styles.css"
+import { MapboxStyleSwitcherControl } from "@watergis/mapbox-gl-style-switcher";
+import "@watergis/mapbox-gl-style-switcher/styles.css"
 import MapboxPopupControl from '@watergis/mapbox-gl-popup';
 import '@watergis/mapbox-gl-popup/css/styles.css';
 import MapboxPitchToggleControl from '@watergis/mapbox-gl-pitch-toggle-control';
