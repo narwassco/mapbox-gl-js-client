@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
@@ -17,9 +16,10 @@ import { MapboxExportControl } from "@watergis/mapbox-gl-export";
 import '@watergis/mapbox-gl-export/css/styles.css';
 import MapboxElevationControl from "@watergis/mapbox-gl-elevation";
 import '@watergis/mapbox-gl-elevation/css/styles.css';
+import axios from 'axios';
 import config from './config';
 
-$(function(){
+(()=>{
     mapboxgl.accessToken = config.accessToken;
 
     const map = new mapboxgl.Map({
@@ -38,7 +38,7 @@ $(function(){
     map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
     map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
     map.addControl(new MapboxElevationControl(config.elevation.url, config.elevation.options), 'top-right');
-    map.addControl(new MapboxExportControl(), 'top-right');
+    map.addControl(new MapboxExportControl({Crosshair: true}), 'top-right');
     map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
     if (config.popup) map.addControl(new MapboxPopupControl(config.popup.target));
@@ -49,7 +49,9 @@ $(function(){
     }
 
     if (config.search){
-        $.getJSON(config.search.url , customerData =>{
+        axios.get(config.search.url)
+        .then(res=>{
+            const customerData = res.data;
             function forwardGeocoder(query) {
                 var matchingFeatures = [];
                 for (var i = 0; i < customerData.features.length; i++) {
@@ -83,4 +85,4 @@ $(function(){
             );
         });
     }
-})
+})();
