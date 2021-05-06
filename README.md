@@ -10,7 +10,7 @@ This client shows Mapbox Vetor Tile of water supply map for Narok Water.
 ```
 git clone https://github.com/narwassco/mapbox-gl-js-client.git
 cd mapbox-gl-js-client
-npm i
+yarn
 ```
 
 ## Configuration
@@ -43,7 +43,7 @@ Please edit your own settings on `config.js` such as mapbox accessToken, stylefi
 ## for Development
 
 ```
-npm start
+yarn start
 ```
 Then, local server will be launched automatically. You can access to http://localhost:8080/ and check how your development works before deploying to gh-pages.
 
@@ -70,14 +70,14 @@ CNAME=Your custom domain. If you don't have custom domain, just delete it.
 ## Build
 
 ```
-npm run build
+yarn run build
 ```
 Then, `bundle.js` will be created under `dist` direcotry.
 
 ## Deploy to gh-pages
 
 ```
-npm run deploy
+yarn run deploy
 ```
 
 ## Attribution
