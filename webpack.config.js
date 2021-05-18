@@ -3,6 +3,7 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.js',
     plugins: [
         new webpack.ProvidePlugin({
@@ -25,12 +26,11 @@ module.exports = {
         },
         ],
     },
-    // devServer: {
-    //     contentBase: __dirname + '/dist',
-    //     publicPath: '/',
-    //     watchContentBase: true,
-    //     open: true
-    // },
+    devtool: 'inline-source-map',
+    devServer: {
+        watchContentBase: true,
+        contentBase: './dist',
+    },
     externals: {
         'mapbox-gl': 'mapboxgl'
     }
