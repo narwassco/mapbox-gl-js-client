@@ -38,6 +38,7 @@
     "@watergis/mapbox-gl-pitch-toggle-control": "^1.0.3",
     "@watergis/mapbox-gl-popup": "^1.0.4",
     "@watergis/mapbox-gl-style-switcher": "^1.0.11",
+    "@watergis/mapbox-gl-valhalla": "^0.0.2",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "mapbox-gl": "^1.13.1"

@@ -269,6 +269,14 @@
   dependencies:
     mapbox-gl "^1.13.0"
 
+"@watergis/mapbox-gl-valhalla@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-valhalla/-/mapbox-gl-valhalla-0.0.2.tgz#ffab7825e5bfce12c0c89674b3115803b06118e8"
+  integrity sha512-dhE+7e45R/lv6IoFZhDLQlEFk/J7umyR2EIqtUKYylWkMFoLTFmvVvox+L6t/q7dEahqlYYpIqSfXQMFmY6TMA==
+  dependencies:
+    axios "^0.21.1"
+    mapbox-gl "^1.13.1"
+
 "@watergis/terrain-rgb@^1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@watergis/terrain-rgb/-/terrain-rgb-1.1.4.tgz#bf864fe13d668da0546932851b08168d94bf6a13"

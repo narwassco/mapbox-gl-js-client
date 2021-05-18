@@ -72,5 +72,32 @@ module.exports = {
             mainColor: '#263238',
             haloColor: '#fff',
         }
+    },
+    valhalla: {
+        url: 'https://valhalla.water-gis.com',
+        options: {
+            Contours: [
+                {
+                    time: 3,
+                    distance: 1,
+                    color: 'ff0000',
+                },
+                {
+                    time: 5,
+                    distance: 2,
+                    color: 'ffff00',
+                },
+                {
+                    time: 10,
+                    distance: 3,
+                    color: '0000ff',
+                },
+                {
+                    time: 15,
+                    distance: 4,
+                    color: 'ff00ff',
+                },
+            ]
+        }
     }
 }

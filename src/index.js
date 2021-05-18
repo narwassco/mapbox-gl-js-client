@@ -16,6 +16,8 @@ import { MapboxExportControl } from "@watergis/mapbox-gl-export";
 import '@watergis/mapbox-gl-export/css/styles.css';
 import MapboxElevationControl from "@watergis/mapbox-gl-elevation";
 import '@watergis/mapbox-gl-elevation/css/styles.css';
+import { MapboxValhallaControl} from "@watergis/mapbox-gl-valhalla";
+import '@watergis/mapbox-gl-valhalla/css/styles.css';
 import axios from 'axios';
 import config from './config';
 
@@ -39,6 +41,7 @@ import config from './config';
     map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
     map.addControl(new MapboxElevationControl(config.elevation.url, config.elevation.options), 'top-right');
     map.addControl(new MapboxExportControl({Crosshair: true}), 'top-right');
+    map.addControl(new MapboxValhallaControl(config.valhalla.url, config.valhalla.options),'top-right');
     map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');
     if (config.popup) map.addControl(new MapboxPopupControl(config.popup.target));
