@@ -4,11 +4,10 @@ module.exports = {
     accessToken : process.env.ACCESSTOKEN,
     attribution : '©NARWASSCO,Ltd.',
     styles : [
-        //{ title: 'Street', uri: 'mapbox://styles/narwassco/cka9n3gdl2jwh1ioa2zsowqn5',}, 
-        //{ title: 'Satellite', uri: 'mapbox://styles/narwassco/ck9ringpx01bk1iq8q4xvknjx',},
+        { title: 'UN Vector Tile(Buildings)', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-buildings.json?version=${version}`,},
+        { title: 'UN Vector Tile', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style.json?version=${version}`,},
         { title: 'Street', uri: `https://narwassco.github.io/mapbox-stylefiles/street/style.json?version=${version}`,}, 
         { title: 'Satellite', uri: `https://narwassco.github.io/mapbox-stylefiles/satellite/style.json?version=${version}`,},
-        { title: 'UN Vector Tile', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style.json?version=${version}`,},
     ],
     center: [35.87063, -1.08551],
     zoom: 13,
@@ -21,7 +20,7 @@ module.exports = {
         zoom: 17,
     },
     popup: {
-        target: ['meter','flow meter','valve','washout','firehydrant','tank','pipeline'/**,'intake','wtp'*/]
+        target: ['meter','flow meter','valve','washout','firehydrant','tank','pipeline','pg-building'/**,'intake','wtp'*/]
     },
     areaSwitcher: {
         areas : [
