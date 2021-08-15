@@ -4,7 +4,7 @@ module.exports = {
     accessToken : process.env.ACCESSTOKEN,
     attribution : '©NARWASSCO,Ltd.',
     styles : [
-        { title: 'UN Vector Tile(Buildings)', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-buildings.json?version=${version}`,},
+        // { title: 'UN Vector Tile(Buildings)', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-buildings.json?version=${version}`,},
         { title: 'UN Vector Tile', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style.json?version=${version}`,},
         { title: 'Street', uri: `https://narwassco.github.io/mapbox-stylefiles/street/style.json?version=${version}`,}, 
         { title: 'Satellite', uri: `https://narwassco.github.io/mapbox-stylefiles/satellite/style.json?version=${version}`,},
