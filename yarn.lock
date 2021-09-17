@@ -234,10 +234,10 @@
     "@watergis/terrain-rgb" "^1.1.4"
     mapbox-gl "^1.13.1"
 
-"@watergis/mapbox-gl-export@^1.2.11":
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-export/-/mapbox-gl-export-1.2.11.tgz#31b2fc93257201b9021888578ab9a91bf8049d8d"
-  integrity sha512-nk0WQn8CzXdPP/NznNNwOhETxMfaAiY9OrfG/sHgn40+hSs1Mk0CtLXse0Dn2Rf7kYzGmJRB702g3DdfQHl10g==
+"@watergis/mapbox-gl-export@^1.2.12":
+  version "1.2.12"
+  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-export/-/mapbox-gl-export-1.2.12.tgz#16adf6ff24ec8887b9ab6dffd56216546f884453"
+  integrity sha512-l6Jfkxf2N7LXNUxizb4KaY5yHrJFyBIijiMhVxDvMZQUc3lXrQxPyhRxTzYwmbfZtxfbdbySoQih7PWCBCn6xQ==
   dependencies:
     fabric "^4.3.1"
     file-saver "^2.0.5"
