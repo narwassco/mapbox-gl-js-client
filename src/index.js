@@ -40,7 +40,7 @@ import config from './config';
     map.addControl(new MapboxStyleSwitcherControl(config.styles), 'top-right');
     map.addControl(new MapboxAreaSwitcherControl(config.areaSwitcher.areas), 'top-right');
     map.addControl(new MapboxElevationControl(config.elevation.url, config.elevation.options), 'top-right');
-    map.addControl(new MapboxExportControl({Crosshair: true}), 'top-right');
+    map.addControl(new MapboxExportControl({Crosshair: true, PrintableArea: true}), 'top-right');
     map.addControl(new MapboxValhallaControl(config.valhalla.url, config.valhalla.options),'top-right');
     map.addControl(new mapboxgl.ScaleControl({maxWidth: 80, unit: 'metric'}), 'bottom-left');
     map.addControl(new mapboxgl.AttributionControl({compact: true,customAttribution: config.attribution}), 'bottom-right');

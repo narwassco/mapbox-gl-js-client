@@ -211,6 +211,13 @@
   resolved "https://registry.yarnpkg.com/@types/raf/-/raf-3.4.0.tgz#2b72cbd55405e071f1c4d29992638e022b20acc2"
   integrity sha512-taW5/WYqo36N7V39oYyHP9Ipfd5pNFvGTIQsNGj86xV88YQ7GnI30/yMfKDF7Zgin0m3e+ikX88FvImnK4RjGw==
 
+"@watergis/legend-symbol@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@watergis/legend-symbol/-/legend-symbol-0.2.2.tgz#3e6e60c63a322e67203357e5ea573db936dbbd49"
+  integrity sha512-Dj7uj8ikqsv1AgaMSC5/Z5rGRxg0i8SMpBGC8AfTljwG1EsaSY9qD0Oe65/lEAabmt7WjA9HYaObf8ySuQA94g==
+  dependencies:
+    "@mapbox/mapbox-gl-style-spec" "^13.16.0"
+
 "@watergis/mapbox-gl-area-switcher@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-area-switcher/-/mapbox-gl-area-switcher-1.0.1.tgz#19a357ef15392c2f92be3fd87832a3d24a292c01"
@@ -227,10 +234,10 @@
     "@watergis/terrain-rgb" "^1.1.4"
     mapbox-gl "^1.13.1"
 
-"@watergis/mapbox-gl-export@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-export/-/mapbox-gl-export-1.2.7.tgz#27e949a6dbefee612690cb5534dc2526e6890b5a"
-  integrity sha512-u2Slti6Takfk2uph3lOcSpMrsuf8gmHoJsDB+JCJf13FiJ9PSjnhiYINMg8W3ICvU3Yoj9drDaQmWbDpS68iyg==
+"@watergis/mapbox-gl-export@^1.2.11":
+  version "1.2.11"
+  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-export/-/mapbox-gl-export-1.2.11.tgz#31b2fc93257201b9021888578ab9a91bf8049d8d"
+  integrity sha512-nk0WQn8CzXdPP/NznNNwOhETxMfaAiY9OrfG/sHgn40+hSs1Mk0CtLXse0Dn2Rf7kYzGmJRB702g3DdfQHl10g==
   dependencies:
     fabric "^4.3.1"
     file-saver "^2.0.5"
@@ -238,14 +245,14 @@
     jspdf "^2.3.1"
     mapbox-gl "^1.13.1"
 
-"@watergis/mapbox-gl-legend@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-legend/-/mapbox-gl-legend-1.1.5.tgz#1570db929566d6d3bae28e886693d0f728a943c7"
-  integrity sha512-bb8/hGOcvPQtidaBhQLOUEYboqsBZByvWL+zGEHp1jeTMpxDTuRhhlZAqgEE1URjizmtxIZ3JAPO/3mnXhbNNA==
+"@watergis/mapbox-gl-legend@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@watergis/mapbox-gl-legend/-/mapbox-gl-legend-1.1.7.tgz#967a2d3527e93933ab74bf6fcaa3bc2de5955268"
+  integrity sha512-KIILPr3SmoqJ9dpyoPdJn4DXIbHr8DL9ZM5NZ7I9ahoVH3zeV2wdChzo7Uayygs5kvbv0Yq9632bZiwmoRaUDQ==
   dependencies:
     "@mapbox/mapbox-gl-style-spec" "^13.19.0"
+    "@watergis/legend-symbol" "^0.2.2"
     axios "^0.21.1"
-    legend-symbol "^0.1.1"
     mapbox-gl "^1.13.1"
 
 "@watergis/mapbox-gl-pitch-toggle-control@^1.0.3":
@@ -3224,13 +3231,6 @@ kind-of@^6.0.0, kind-of@^6.0.2, kind-of@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
-
-legend-symbol@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/legend-symbol/-/legend-symbol-0.1.1.tgz#8e8471cdb877766746ba60cbf3beb3c1637f9dd1"
-  integrity sha512-AVkYC9lj0zSnx0LZvbnLtRdfwcSIFEFq6BTKP6OAdCmFg/Bh+cOqoFCaj+DQX6xlth/zN16FTh8STVs2/MPUpg==
-  dependencies:
-    "@mapbox/mapbox-gl-style-spec" "^13.16.0"
 
 levn@~0.3.0:
   version "0.3.0"
