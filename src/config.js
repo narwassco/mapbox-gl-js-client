@@ -21,7 +21,7 @@ module.exports = {
         zoom: 17,
     },
     popup: {
-        target: ['meter','flow meter','valve','washout','firehydrant','tank','pipeline','pg-building'/**,'intake','wtp'*/]
+        target: ['meter','flow meter','valve','washout','firehydrant','tank','pipeline','pg-building', 'sewer-connection', 'sewer_commercial', 'sewer_institution', 'sewer_public_toilet', 'sewer_pipeline', 'sewer_treatment_plant', 'manhole']
     },
     areaSwitcher: {
         areas : [
@@ -54,7 +54,14 @@ module.exports = {
             'dma-annotation': 'DMA Label', 
             'contour-line': 'Countour',
             'contour-label': 'Contour Label',
-            'hillshade': 'Hillshade'
+            'hillshade': 'Hillshade',
+            'sewer-connection': 'Households (Sewer)',
+            'sewer_commercial': 'Commecial (Sewer)',
+            'sewer_institution': 'Institution (Sewer)',
+            'sewer_public_toilet': 'Public Toilet (Sewer)',
+            'manhole': 'Manhole',
+            'sewer_pipeline': 'Sewer pipeline',
+            'sewer_treatment_plant': 'Wastewater treatment plant'
         },
         options: {
             showDefault:false,
