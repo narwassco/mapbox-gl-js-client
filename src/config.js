@@ -55,7 +55,7 @@ module.exports = {
             'contour-line': 'Countour',
             'contour-label': 'Contour Label',
             'hillshade': 'Hillshade',
-            'sewer-connection': 'Households (Sewer)',
+            'sewer_connection': 'Households (Sewer)',
             'sewer_commercial': 'Commecial (Sewer)',
             'sewer_institution': 'Institution (Sewer)',
             'sewer_public_toilet': 'Public Toilet (Sewer)',
