@@ -6,9 +6,9 @@ module.exports = {
     styles : [
         { title: 'UNVT Water (OSM)', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style.json?version=${version}`,},
         { title: 'UNVT Water (Building)', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-buildings.json?version=${version}`,},
-        { title: 'Satellite Water', uri: `https://narwassco.github.io/mapbox-stylefiles/satellite/style.json?version=${version}`,},
+        { title: 'Satellite Water', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-aerial.json?version=${version}`,},
         { title: 'UNVT Sewer', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-sewer.json?version=${version}`,},
-        { title: 'Satellite Sewer', uri: `https://narwassco.github.io/mapbox-stylefiles/satellite/style-sewer.json?version=${version}`,},
+        { title: 'Satellite Sewer', uri: `https://narwassco.github.io/mapbox-stylefiles/unvt/style-aerial-sewer.json?version=${version}`,},
     ],
     center: [35.87063, -1.08551],
     zoom: 13,
