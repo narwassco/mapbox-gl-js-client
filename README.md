@@ -1,3 +1,5 @@
+# This repository was moved into [narwassco/watergis](https://github.com/narwassco/watergis) repo.
+
 # mapbox-gl-js-client
 ![](https://github.com/narwassco/mapbox-gl-js-client/workflows/Node.js%20CI/badge.svg)
 ![GitHub](https://img.shields.io/github/license/narwassco/mapbox-gl-js-client)
